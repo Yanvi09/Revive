@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart'; // Import login screen
+import 'screens/login_screen.dart';
+import 'screens/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(), // Ensure this points to LoginScreen
+      home: LoginScreen(), // Removed 'const'
     );
   }
 }
