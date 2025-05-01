@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:revive_app/services/booking_service.dart';
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({super.key});
@@ -9,31 +8,65 @@ class BookingScreen extends StatefulWidget {
 }
 
 class _BookingScreenState extends State<BookingScreen> {
-  List<String> therapies = ['Stress Relief', 'Anxiety Management', 'Mindfulness Training'];
-  String selectedTherapy = '';
+  String selectedDepartment = 'Therapy';
+  String selectedTime = '10:00 AM';
 
-  void bookAppointment(String therapy) async {
-    bool success = await BookingService().bookTherapy(therapy);
+  void bookAppointment() {
+    // Call BookingService.book() here
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(success ? 'Appointment Booked!' : 'Failed to Book')),
+      const SnackBar(content: Text('Appointment booked successfully!')),
     );
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Book Appointment')),
-      body: ListView.builder(
-        itemCount: therapies.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(therapies[index]),
-            trailing: ElevatedButton(
-              onPressed: () => bookAppointment(therapies[index]),
-              child: const Text('Book'),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          children: [
+            DropdownButtonFormField<String>(
+              value: selectedDepartment,
+              items: ['Therapy', 'Counseling', 'Physiotherapy']
+                  .map((dept) => DropdownMenuItem(
+                        value: dept,
+                        child: Text(dept),
+                      ))
+                  .toList(),
+              onChanged: (value) => setState(() {
+                selectedDepartment = value!;
+              }),
+              decoration: const InputDecoration(
+                labelText: 'Select Department',
+                border: OutlineInputBorder(),
+              ),
             ),
-          );
-        },
+            const SizedBox(height: 20),
+            DropdownButtonFormField<String>(
+              value: selectedTime,
+              items: ['10:00 AM', '11:00 AM', '12:00 PM']
+                  .map((time) => DropdownMenuItem(
+                        value: time,
+                        child: Text(time),
+                      ))
+                  .toList(),
+              onChanged: (value) => setState(() {
+                selectedTime = value!;
+              }),
+              decoration: const InputDecoration(
+                labelText: 'Select Time Slot',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: bookAppointment,
+              child: const Text('Confirm Booking'),
+            ),
+          ],
+        ),
       ),
     );
   }

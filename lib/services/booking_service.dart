@@ -1,12 +1,24 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class BookingService {
-  Future<bool> bookTherapy(String therapy) async {
+  static const String baseUrl = "https://your-api-url.com";
+
+  static Future<bool> bookAppointment(String department, String timeSlot) async {
     final response = await http.post(
-      Uri.parse('${dotenv.env['API_URL']}/book'),
-      body: {'therapy': therapy},
+      Uri.parse('$baseUrl/appointments'),
+      body: {
+        'department': department,
+        'time_slot': timeSlot,
+      },
     );
-    return response.statusCode == 200;
+
+    if (response.statusCode == 200) {
+      // Handle successful appointment booking
+      return true;
+    } else {
+      return false;
+    }
   }
 }

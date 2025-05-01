@@ -1,16 +1,24 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ProfileService {
-  Future<Map<String, dynamic>> getProfile() async {
+  static const String baseUrl = "https://your-api-url.com";
+
+  static Future<Map<String, String>> fetchProfile() async {
     final response = await http.get(
-      Uri.parse('${dotenv.env['API_URL']}/profile'),
+      Uri.parse('$baseUrl/profile'),
     );
+
     if (response.statusCode == 200) {
-      return json.decode(response.body);
+      final data = json.decode(response.body);
+      return {
+        'name': data['name'],
+        'email': data['email'],
+        'bed_assigned': data['bed_assigned'],
+      };
     } else {
-      return {};
+      throw Exception('Failed to load profile');
     }
   }
 }

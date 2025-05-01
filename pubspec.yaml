@@ -1,6 +1,6 @@
 name: revive_app
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: 'none' # Remove this line if you plan to publish
 
 version: 1.0.0+1
 
@@ -18,12 +18,14 @@ dependencies:
   pusher_client: ^2.0.0
   qr_flutter: ^4.0.0
   mobile_scanner: ^2.1.0
-  shared_preferences: ^2.0.15  # Moved here properly
+  shared_preferences: ^2.0.15
+  firebase_core: ^2.24.2  # Firebase Core package
+  firebase_auth: ^4.16.1  # Firebase Auth package
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^3.0.1
 
 flutter:
   uses-material-design: true
