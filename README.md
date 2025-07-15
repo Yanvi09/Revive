@@ -31,19 +31,24 @@ A full-stack hospital management system built with **Laravel, MySQL, and WebSock
 
 ---
 
-## 🗂 Folder Structure (Laravel Backend)
+## Folder Structure (Laravel Backend)
+```bash
 revive-backend/
 ├── app/
-│ ├── Models/ # Doctor, Patient, Appointment, Bed, InventoryItem
-│ ├── Http/
-│ │ ├── Controllers/ # API logic
-│ │ └── Middleware/
+│   ├── Models/                # Doctor, Patient, Appointment, Bed, InventoryItem
+│   ├── Http/
+│   │   ├── Controllers/       # API logic
+│   │   └── Middleware/
 ├── routes/
-│ ├── api.php # API for Flutter + Admin Panel
-│ └── web.php
-├── resources/views/ # Blade Templates (Admin)
-├── database/migrations/ # Table Schema
-├── .env # DB + Auth Keys
+│   ├── api.php                # API for Flutter + Admin Panel
+│   └── web.php
+├── resources/
+│   └── views/                 # Blade Templates (Admin)
+├── database/
+│   └── migrations/            # Table Schema
+├── .env                       # DB + Auth Keys
+```
+
 
 
 Author
