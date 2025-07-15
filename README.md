@@ -1,24 +1,54 @@
-# revive_app
+# 🏥 Revive – Smart Hospital Management System  
+**"Revive" is not just a name — it's a second chance, engineered for real lives.**
 
-A new Flutter project.
+A full-stack hospital management system built with **Laravel, MySQL, and WebSockets**, designed to modernize and automate real-time healthcare operations like appointments, bed tracking, and paperless admissions.  
 
-## Getting Started
+🔗 [Video Demo on LinkedIn](https://www.linkedin.com/posts/anvi-yadav_revive-healthtech-fullstackdevelopment-activity-7324534940518252544-pjs0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD5o7oIBVQf-r7DdN8fQY5BvTfN0gFTDjFU)
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Key Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Core Backend Logic
+- **Secure JWT Auth** with Laravel Sanctum  
+- **RESTful APIs** for Patients, Appointments, Beds, Inventory  
+- **Role-Based Access Control** – Admin vs Patient
+- **Real-Time Queue Updates** via WebSockets (Pusher)
+- **Bed Occupancy System** with live status flags
+- **QR-based Admission/Discharge** (Planned with Flutter frontend)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
 
-## Project Setup
+## ⚙️ Tech Stack
 
-To get started with this project:
-1. Clone the repository.
-2. Install dependencies by running:
-   ```bash
-   flutter pub get
+| Layer        | Technologies                      |
+|--------------|-----------------------------------|
+| Backend      | Laravel 11, Sanctum, MySQL        |
+| Real-Time    | Pusher WebSockets                 |
+| AI/ML Layer  | FastAPI + Python (for queue logic)|
+| Auth         | Laravel Sanctum (JWT)             |
+| Frontend     | Blade (Admin) + Flutter (Planned) |
+
+---
+
+## 🗂 Folder Structure (Laravel Backend)
+revive-backend/
+├── app/
+│ ├── Models/ # Doctor, Patient, Appointment, Bed, InventoryItem
+│ ├── Http/
+│ │ ├── Controllers/ # API logic
+│ │ └── Middleware/
+├── routes/
+│ ├── api.php # API for Flutter + Admin Panel
+│ └── web.php
+├── resources/views/ # Blade Templates (Admin)
+├── database/migrations/ # Table Schema
+├── .env # DB + Auth Keys
+
+
+Author
+Anvi Yadav
+- LPU, Spring 2026
+- Backend | AI | Open Source
+- GitHub --https://github.com/Yanvi09
+- Linkedln --linkedin.com/in/anvi-yadav  
