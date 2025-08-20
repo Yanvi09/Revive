@@ -16,7 +16,13 @@ const Container = styled.div`
 function App() {
   return <ThemeProvider theme={lightTheme}>
    <BrowserRouter>
-   <Container><Navbar>LetsShop</Navbar>LetsShop</Container>
+   <Container>
+    <Navbar>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+    
+    
+    </Routes></Navbar></Container>
    </BrowserRouter>
 
   </ThemeProvider>
