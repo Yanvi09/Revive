@@ -3,9 +3,20 @@ import styled from "styled-components";
 import LogoImg from "../utils/Images/Logo.png";
 import {NavLink} from "react-router-dom";
 import Button from "./Button"
-import {SearchRounded } from "@mui/icons-materials";
+import {SearchRounded, FavoriteBorder, ShoppingCartOutlined, } from "@mui/icons-materials";
 
-const Nav = styled.div``;
+const Nav = styled.div`
+background-color: ${({ theme }) => theme.bg};
+height: 80px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+position: sticky;
+top: 0;
+z-index: 10;
+color: white;
+`;
 const NavbarContainer = styled.div``;
 const NavLogo = styled.div``;
 const Logo = styled.img``;
